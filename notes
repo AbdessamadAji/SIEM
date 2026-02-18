@@ -1,0 +1,6 @@
+LVM : Creates a flexible storage layer so disks can be resized live without reinstalling the OS
+VG : A storage pool made from physical disks.
+LV : The actual “disk” your OS uses (acts like a partition).
+Filesystem resize : After LV grows, filesystem still thinks old size. resize2fs makes the OS see the new space.
+
+
