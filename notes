@@ -4,3 +4,9 @@ LV : The actual “disk” your OS uses (acts like a partition).
 Filesystem resize : After LV grows, filesystem still thinks old size. resize2fs makes the OS see the new space.
 
 
+VM disk ≠ usable disk.
+Ubuntu Server networking = Netplan, not dhclient.
+Elasticsearch 8 = HTTPS + auth by default.
+in case of errors always check logs
+
+
