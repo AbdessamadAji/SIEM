@@ -1,3 +1,5 @@
+#Installing elasricsearch , logstash, kibana
+
 # install necessary utilities
 sudo apt update && sudo apt upgrade -y
 sudo apt install apt-transport-https curl gnupg -y
@@ -51,3 +53,47 @@ sudo systemctl start logstash
 systemctl status elasticsearch
 systemctl status kibana
 systemctl status logstash
+
+
+# installing dvwa on Ubuntu Desktop:
+Install DVWA on Ubuntu Desktop:
+#Update system
+sudo apt update && sudo apt upgrade -y
+#Install web stack + database + git
+sudo apt install apache2 mariadb-server php php-mysqli php-gd libapache2-mod-php git -y
+#Enable Apache
+sudo systemctl enable apache2
+sudo systemctl start apache2
+# verification
+pic here
+#Download DVWA
+cd /var/www/html
+sudo git clone https://github.com/digininja/DVWA.git
+sudo chown -R www-data:www-data DVWA
+sudo chmod -R 755 DVWA
+
+cd DVWA/config
+sudo cp config.inc.php.dist config.inc.php
+sudo nano config.inc.php
+
+# set
+$_DVWA['db_user'] = 'admin';
+$_DVWA['db_password'] = 'password';
+
+#Create database
+sudo mysql
+CREATE DATABASE dvwa;
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON dvwa.* TO 'admin'@'localhost';
+
+FLUSH PRIVILEGES;
+
+exit;
+
+* pic here
+
+#validation:
+http://192.168.56.104/DVWA/index.php
+*pic here
