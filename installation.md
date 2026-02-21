@@ -93,7 +93,43 @@ FLUSH PRIVILEGES;
 exit;
 
 * pic here
-
-#validation:
 http://192.168.56.104/DVWA/index.php
 *pic here
+
+#On Ubuntu Desktop , Install Filebeat
+sudo apt update
+sudo apt install filebeat -y
+#Enable log modules
+
+#validation:
+cd ~
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.19.11-linux-x86_64.tar.gz
+tar xzvf filebeat-8.19.11-linux-x86_64.tar.gz
+sudo mv filebeat-8.19.11-linux-x86_64 /opt/filebeat
+cd /opt/filebeat
+
+
+
+# edit Filebeat config:
+sudo nano /opt/filebeat/filebeat.yml
+#Disable Elasticsearch output
+comment:
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+#Enable Logstash output
+add:
+output.logstash:
+  hosts: ["192.168.56.103:5044"]
+#Enable system + apache logs
+# add
+filebeat.inputs:
+- type: filestream
+  enabled: true
+  paths:
+    - /var/log/auth.log
+    - /var/log/apache2/access.log
+#Fix ownership
+sudo chown root:root /opt/filebeat/filebeat.yml
+# test config:
+sudo ./filebeat test config
+
