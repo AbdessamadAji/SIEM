@@ -9,4 +9,27 @@ Ubuntu Server networking = Netplan, not dhclient.
 Elasticsearch 8 = HTTPS + auth by default.
 in case of errors always check logs
 
+gnupg: Used to verify software authenticity.
+-Xms1g: Initial JVM heap size = 1 GB.
+-Xmx1g: Maximum JVM heap size = 1 GB.
 
+JVM heap size = the amount of RAM reserved for Java applications to store objects and data.
+
+JVM (Java Virtual Machine): Runtime environment that executes Elasticsearch.
+
+cluster.initial_master_nodes: Used ONLY for multi-node clusters to elect first master.
+
+Elasticsearch: Stores + indexes logs (the DB)
+Logstash: Parses raw logs into structured fields. (raw log → source.ip, username, url) (the transformer)
+Kibana: Dashboards + searches + alerts + detection rules.
+Filebeat: Lightweight agent on victim machine.Ships logs to Logstash/Elasticsearch. (the collector)
+
+Victim logs
+   ↓
+Filebeat
+   ↓
+Logstash (parse)
+   ↓
+Elasticsearch (store)
+   ↓
+Kibana (visualize + detect)
