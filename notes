@@ -33,3 +33,5 @@ Logstash (parse)
 Elasticsearch (store)
    ↓
 Kibana (visualize + detect)
+
+Filebeat : Must run as root
