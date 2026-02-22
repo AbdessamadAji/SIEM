@@ -34,4 +34,23 @@ Elasticsearch (store)
    ↓
 Kibana (visualize + detect)
 
+
 Filebeat : Must run as root
+It reads files locally BEFORE sending
+
+
+Filebeat ships
+Logstash parses
+Elasticsearch stores
+Kibana visualizes + detects
+
+Logstash : Pipeline = input → filter → output
+
+Grok : converts raw text into structured fields 
+Grok is a Logstash filter plugin + pattern language. It lives inside Logstash
+example:
+      192.168.1.5 GET /DVWA/login.php 200  -> source_ip: 192.168.1.5
+                                              url: /DVWA/login.php
+                                              status: 200
+
+
