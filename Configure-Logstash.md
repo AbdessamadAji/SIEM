@@ -58,3 +58,8 @@ sudo ./filebeat -e  #Runs Filebeat in foreground.
 # on siem:
 curl -k -u elastic https://localhost:9200/_cat/indices  #Shows all Elasticsearch indices.
 *pic here
+
+#create data view
+Stack Management -> Data Views -> Create data view with name siem , and index siem-*
+
+
