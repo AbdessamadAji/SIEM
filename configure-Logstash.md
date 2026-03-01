@@ -71,7 +71,7 @@ sudo ./filebeat -e  # Runs Filebeat in foreground
 curl -k -u elastic https://localhost:9200/_cat/indices  # Shows all Elasticsearch indices
 ```
 
-<img width="811" height="381" alt="Screenshot from 2026-02-20 18-26-00" src="https://github.com/user-attachments/assets/d3dfd609-20f5-4247-8b6d-449ea802d65d" />
+<img width="845" height="97" alt="Screenshot from 2026-02-22 02-57-31" src="https://github.com/user-attachments/assets/01b768f7-f3ea-4239-b2a4-1859f776fadb" />
 
 ## Create Data View
 
